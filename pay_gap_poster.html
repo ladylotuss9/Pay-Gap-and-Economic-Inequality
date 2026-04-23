@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pay Gap and Economic Inequality | The Lotus Assembly</title>
+<meta name="description" content="Women earn 81 cents for every dollar a man makes. Latina women earn 54 cents. This is not a myth. It is a documented crisis. Here is what we know and what we can do." />
+<meta property="og:title" content="The Pay Gap Is Real | The Lotus Assembly" />
+<meta property="og:description" content="Women earn 81 cents for every dollar a man earns. For women of color it is far worse. Learn the facts and join The Lotus Assembly to fight back." />
+<meta property="og:type" content="website" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #F7F2F8;
+  color: #1A001A;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.hero {
+  background: linear-gradient(135deg, #2D0A3A 0%, #5C1A7A 55%, #8B2FC9 100%);
+  color: white;
+  padding: 44px 28px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -40px;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+
+.hero-ribbon {
+  display: inline-block;
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 18px;
+  margin-bottom: 18px;
+  color: #E5BFFF;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1.12;
+  margin-bottom: 14px;
+  color: #fff;
+  position: relative;
+}
+
+.hero h1 span { color: #E5BFFF; }
+
+.hero p {
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto;
+  color: rgba(255,255,255,0.85);
+  position: relative;
+}
+
+.stat-bar { background: #2D0A3A; display: flex; }
+
+.stat-item {
+  flex: 1; text-align: center;
+  padding: 16px 8px;
+  border-right: 1px solid rgba(255,255,255,0.12);
+}
+
+.stat-item:last-child { border-right: none; }
+
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px; font-weight: 700;
+  color: #E5BFFF; display: block; margin-bottom: 3px;
+}
+
+.stat-label {
+  font-size: 10.5px; color: rgba(255,255,255,0.62);
+  line-height: 1.35; display: block;
+}
+
+.section { padding: 30px 24px 0; }
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 700;
+  color: #2D0A3A; margin-bottom: 4px;
+}
+
+.section-sub {
+  font-size: 13px; color: #6A3A8A;
+  margin-bottom: 18px; font-style: italic;
+}
+
+.what-box {
+  background: white; border-radius: 16px; padding: 22px;
+  border-left: 5px solid #8B2FC9;
+  box-shadow: 0 2px 14px rgba(45,10,58,0.09);
+}
+
+.what-box p { font-size: 15px; line-height: 1.8; color: #1A001A; }
+.what-box strong { color: #2D0A3A; }
+
+.divider {
+  height: 2px;
+  background: linear-gradient(90deg, #8B2FC9, #E5BFFF, transparent);
+  margin: 28px 24px 0; border-radius: 2px;
+}
+
+/* VISUAL PAY GAP BAR */
+.gap-bars { display: flex; flex-direction: column; gap: 12px; }
+
+.gap-row {
+  background: white; border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: 0 1px 8px rgba(45,10,58,0.07);
+}
+
+.gap-label {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-bottom: 8px;
+}
+
+.gap-label h4 { font-size: 13px; font-weight: 600; color: #2D0A3A; }
+.gap-label span { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #8B2FC9; }
+
+.gap-track {
+  width: 100%; height: 10px;
+  background: #F0E8F8; border-radius: 100px;
+  overflow: hidden;
+}
+
+.gap-fill {
+  height: 100%; border-radius: 100px;
+  background: linear-gradient(90deg, #5C1A7A, #8B2FC9);
+}
+
+.gap-note { font-size: 11px; color: #6A3A8A; margin-top: 5px; }
+
+/* WHY SECTION */
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.why-card {
+  background: white; border-radius: 14px; padding: 18px 16px;
+  box-shadow: 0 2px 10px rgba(45,10,58,0.08);
+  border-top: 3px solid #8B2FC9;
+}
+
+.why-icon { font-size: 24px; margin-bottom: 10px; display: block; }
+.why-card h3 { font-size: 14px; font-weight: 600; color: #2D0A3A; margin-bottom: 6px; line-height: 1.3; }
+.why-card p  { font-size: 13px; color: #4A1A5A; line-height: 1.6; }
+
+/* MYTH BUSTER */
+.myth-cards { display: flex; flex-direction: column; gap: 12px; }
+
+.myth-card {
+  background: white; border-radius: 14px; padding: 16px 18px;
+  box-shadow: 0 2px 10px rgba(45,10,58,0.07);
+}
+
+.myth-tag {
+  display: inline-block;
+  font-size: 10px; font-weight: 600; letter-spacing: 1px;
+  text-transform: uppercase; padding: 3px 10px;
+  border-radius: 100px; margin-bottom: 6px;
+}
+
+.myth-tag.myth { background: rgba(220,60,60,0.1); color: #8B2020; border: 1px solid rgba(220,60,60,0.2); }
+.myth-tag.fact  { background: rgba(45,106,78,0.1); color: #1B4332; border: 1px solid rgba(45,106,78,0.2); }
+
+.myth-card h4 { font-size: 14px; font-weight: 600; color: #2D0A3A; margin-bottom: 4px; }
+.myth-card p  { font-size: 13px; color: #4A1A5A; line-height: 1.6; }
+
+/* ACTION AND BAND */
+.action-cards { display: flex; flex-direction: column; gap: 12px; }
+
+.action-card {
+  background: white; border-radius: 14px; padding: 18px;
+  display: flex; gap: 16px; align-items: flex-start;
+  box-shadow: 0 2px 10px rgba(45,10,58,0.07);
+}
+
+.action-num {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: #2D0A3A; color: white;
+  font-weight: 700; font-size: 15px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-family: 'Playfair Display', serif;
+}
+
+.action-card h3 { font-size: 15px; font-weight: 600; color: #2D0A3A; margin-bottom: 5px; }
+.action-card p  { font-size: 13px; color: #4A1A5A; line-height: 1.65; }
+
+.band-card {
+  background: white; border-radius: 16px; padding: 22px;
+  box-shadow: 0 2px 14px rgba(45,10,58,0.09);
+  border-bottom: 4px solid #8B2FC9;
+}
+
+.band-card h3 { font-family: 'Playfair Display', serif; font-size: 18px; color: #2D0A3A; margin-bottom: 14px; }
+
+.band-idea {
+  display: flex; gap: 12px; align-items: flex-start;
+  margin-bottom: 14px; padding-bottom: 14px;
+  border-bottom: 1px solid #EEE0F8;
+}
+
+.band-idea:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.band-emoji { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+.band-idea h4 { font-size: 14px; font-weight: 600; color: #1A001A; margin-bottom: 3px; }
+.band-idea p  { font-size: 13px; color: #4A1A5A; line-height: 1.6; }
+
+.source-note { font-size: 11px; color: #6A3A8A; margin-top: 8px; line-height: 1.6; font-style: italic; }
+
+.cta-section {
+  background: linear-gradient(135deg, #2D0A3A, #5C1A7A);
+  margin: 28px 24px 0; border-radius: 20px;
+  padding: 32px 26px; color: white; text-align: center;
+}
+
+.cta-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px; font-weight: 700;
+  color: #fff; margin-bottom: 10px; line-height: 1.2;
+}
+
+.cta-section > p {
+  font-size: 14px; color: rgba(255,255,255,0.82);
+  line-height: 1.7; margin-bottom: 24px;
+}
+
+.form-input {
+  display: block; width: 100%;
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 12px; padding: 13px 16px;
+  color: white; font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  outline: none; margin-bottom: 10px;
+}
+
+.form-input::placeholder { color: rgba(255,255,255,0.5); }
+.form-input:focus { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.22); }
+
+.role-label { font-size: 13px; color: rgba(255,255,255,0.75); text-align: left; margin-bottom: 10px; }
+.role-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 18px; }
+
+.role-btn {
+  background: rgba(255,255,255,0.12);
+  border: 1.5px solid rgba(255,255,255,0.28);
+  border-radius: 10px; padding: 11px 8px;
+  color: rgba(255,255,255,0.82); font-size: 12px;
+  cursor: pointer; text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.15s; line-height: 1.4;
+}
+
+.role-btn:hover { background: rgba(255,255,255,0.22); color: white; }
+.role-btn.selected { background: white; color: #2D0A3A; border-color: white; font-weight: 600; }
+
+.submit-btn {
+  width: 100%; background: white; color: #2D0A3A;
+  border: none; border-radius: 12px; padding: 15px;
+  font-size: 16px; font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+}
+
+.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 22px rgba(0,0,0,0.22); }
+.submit-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+
+.error-msg {
+  background: rgba(255,80,80,0.2);
+  border: 1px solid rgba(255,150,150,0.4);
+  border-radius: 10px; padding: 10px 14px;
+  font-size: 13px; color: #FFD0D0;
+  margin-bottom: 12px; display: none; text-align: left;
+}
+
+.success-box {
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.36);
+  border-radius: 14px; padding: 22px; display: none;
+}
+
+.success-box h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; color: #E5BFFF; margin-bottom: 8px;
+}
+
+.success-box p { font-size: 14px; color: rgba(255,255,255,0.88); line-height: 1.65; }
+
+.tag {
+  display: inline-block; background: #EEE0F8; color: #2D0A3A;
+  border-radius: 100px; padding: 4px 12px;
+  font-size: 12px; font-weight: 600; margin: 3px 2px;
+}
+
+.lt-footer {
+  margin: 24px 24px 0; background: white;
+  border-radius: 16px; padding: 20px 22px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(45,10,58,0.08);
+  border: 1px solid #EEE0F8;
+}
+
+.lt-footer p { font-size: 13px; color: #4A1A5A; margin-bottom: 12px; line-height: 1.5; }
+
+.lt-footer-btn {
+  display: inline-block; background: #2D0A3A; color: white;
+  border-radius: 12px; padding: 12px 28px;
+  font-size: 14px; font-weight: 700;
+  text-decoration: none; font-family: 'DM Sans', sans-serif;
+  transition: opacity 0.15s; margin: 4px;
+}
+
+.lt-footer-btn:hover { opacity: 0.85; }
+.lt-footer-btn.outline { background: #F7F2F8; color: #2D0A3A; border: 2px solid #2D0A3A; }
+
+.footer-note {
+  text-align: center; padding: 24px;
+  font-size: 12px; color: #6A3A8A; line-height: 1.8;
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-ribbon">The Lotus Assembly</div>
+  <h1>The Pay Gap Is <span>Real.</span><br>And It Is Getting Worse.</h1>
+  <p>In 2024, the gender wage gap widened for the second year in a row. Women working full-time earn 81 cents for every dollar a man earns. For Latina women it is 54 cents. This is not opinion. This is data. And we deserve better.</p>
+</div>
+
+<div class="stat-bar">
+  <div class="stat-item">
+    <span class="stat-num">81¢</span>
+    <span class="stat-label">women earn per dollar<br>a man earns (full-time, 2024)</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">$14,640</span>
+    <span class="stat-label">lost per year by the<br>average working woman</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">2nd year</span>
+    <span class="stat-label">in a row the wage gap<br>has worsened since 2022</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">What Is the Pay Gap?</div>
+  <div class="section-sub">In plain terms</div>
+  <div class="what-box">
+    <p>The pay gap is the difference between what men and women earn for doing the same or similar work. It is not fully explained by job choices or education. <strong>Even when women have advanced degrees, they earn less than men with only a college degree.</strong> The gap exists across every industry, every education level, and every state in the country. It is not a myth, not a misunderstanding, and not something women can fix by working harder. <strong>It is a structural problem that requires structural solutions.</strong></p>
+  </div>
+</div>
+
+<div class="section" style="padding-top:24px;">
+  <div class="section-title">The Gap by Race</div>
+  <div class="section-sub">For every dollar paid to a white, non-Hispanic man in 2024</div>
+  <div class="gap-bars">
+    <div class="gap-row">
+      <div class="gap-label">
+        <h4>White women</h4>
+        <span>73¢</span>
+      </div>
+      <div class="gap-track"><div class="gap-fill" style="width:73%;"></div></div>
+      <div class="gap-note">Lose $14,560 per year compared to white men</div>
+    </div>
+    <div class="gap-row">
+      <div class="gap-label">
+        <h4>Black women</h4>
+        <span>63¢</span>
+      </div>
+      <div class="gap-track"><div class="gap-fill" style="width:63%;"></div></div>
+      <div class="gap-note">Lose $28,340 per year compared to white men</div>
+    </div>
+    <div class="gap-row">
+      <div class="gap-label">
+        <h4>Latina women</h4>
+        <span>54¢</span>
+      </div>
+      <div class="gap-track"><div class="gap-fill" style="width:54%;"></div></div>
+      <div class="gap-note">Lose $33,620 per year compared to white men</div>
+    </div>
+    <div class="gap-row">
+      <div class="gap-label">
+        <h4>Native American women</h4>
+        <span>53¢</span>
+      </div>
+      <div class="gap-track"><div class="gap-fill" style="width:53%;"></div></div>
+      <div class="gap-note">Among the widest gaps of any group tracked nationally</div>
+    </div>
+  </div>
+  <p class="source-note">Source: National Partnership for Women and Families 2024 · IWPR September 2025</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <div class="section-title">Why Does the Gap Exist?</div>
+  <div class="section-sub">The real reasons — not the excuses</div>
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="why-icon">🏢</span>
+      <h3>Occupational segregation</h3>
+      <p>Jobs dominated by women — teaching, caregiving, social work — pay significantly less than jobs dominated by men, even when they require equal skill and education.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🤱</span>
+      <h3>The motherhood penalty</h3>
+      <p>Women's earnings drop an average of 4% per child while men's earnings increase. This is called the motherhood penalty and the fatherhood bonus.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🚫</span>
+      <h3>Workplace discrimination</h3>
+      <p>50% of U.S. adults say a major reason for the gap is that employers treat women differently. Discrimination in hiring, promotion, and pay remains a documented reality.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">📋</span>
+      <h3>Lack of pay transparency</h3>
+      <p>When employees cannot legally discuss pay, women cannot identify when they are being underpaid. Pay secrecy is a tool that protects discriminatory practices.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <div class="section-title">Myth vs. Fact</div>
+  <div class="section-sub">The most common excuses and why they do not hold up</div>
+  <div class="myth-cards">
+    <div class="myth-card">
+      <span class="myth-tag myth">Myth</span>
+      <h4>Women choose lower-paying jobs</h4>
+      <p>When women enter a field in large numbers, wages in that field go down. When men enter a field in large numbers, wages go up. The job does not determine the pay. The gender of the workforce does.</p>
+    </div>
+    <div class="myth-card">
+      <span class="myth-tag myth">Myth</span>
+      <h4>Women with advanced degrees earn the same as men</h4>
+      <p>Women with advanced degrees earn less per hour than men with only a college degree. A woman with a masters degree earns on average $15.66 less per hour than a man with a bachelors degree.</p>
+    </div>
+    <div class="myth-card">
+      <span class="myth-tag myth">Myth</span>
+      <h4>The gap is closing fast</h4>
+      <p>The gender wage gap for full-time workers actually worsened in 2024 for the second consecutive year. Men's earnings grew 3.7% while women's earnings remained largely flat.</p>
+    </div>
+    <div class="myth-card">
+      <span class="myth-tag fact">Fact</span>
+      <h4>Pay transparency laws are working</h4>
+      <p>States that have passed pay transparency and equal pay laws have seen measurable reductions in the wage gap. This is one of the most effective policy tools we have and we should push for it everywhere.</p>
+    </div>
+  </div>
+  <p class="source-note">Sources: Economic Policy Institute 2025 · IWPR 2025 · Pew Research Center 2025 · U.S. Census Bureau 2024</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <div class="section-title">What WE Can Do</div>
+  <div class="section-sub">Individual action and collective pressure both matter</div>
+  <div class="action-cards">
+    <div class="action-card">
+      <div class="action-num">1</div>
+      <div>
+        <h3>Talk about your salary openly</h3>
+        <p>Pay secrecy protects employers who underpay women. You have a legal right to discuss your pay with coworkers under the National Labor Relations Act. Use it. Share your salary. Ask others theirs.</p>
+      </div>
+    </div>
+    <div class="action-card">
+      <div class="action-num">2</div>
+      <div>
+        <h3>Negotiate every offer</h3>
+        <p>Women who negotiate earn significantly more over their lifetime. Use Glassdoor, LinkedIn Salary, and Levels.fyi to research market rates before every negotiation. Never accept the first offer without countering.</p>
+      </div>
+    </div>
+    <div class="action-card">
+      <div class="action-num">3</div>
+      <div>
+        <h3>Push for pay transparency at your job</h3>
+        <p>Ask your HR department to publish salary bands. Support coworkers who raise pay equity concerns. If your company retaliates against pay transparency conversations, that is illegal and can be reported to the EEOC.</p>
+      </div>
+    </div>
+    <div class="action-card">
+      <div class="action-num">4</div>
+      <div>
+        <h3>Support the Paycheck Fairness Act</h3>
+        <p>This legislation would close loopholes in the Equal Pay Act, prohibit retaliation against workers who discuss wages, and require employers to justify pay differences. Find your rep at house.gov and contact them today.</p>
+      </div>
+    </div>
+    <div class="action-card">
+      <div class="action-num">5</div>
+      <div>
+        <h3>Vote for paid family leave</h3>
+        <p>The motherhood penalty exists largely because women bear unpaid caregiving responsibilities alone. Paid family leave for all workers is the single most effective policy for reducing the gender wage gap long term.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <div class="section-title">How to Band Women Together</div>
+  <div class="section-sub">Collective action is how wage gaps actually close</div>
+  <div class="band-card">
+    <h3>Organize around pay equity:</h3>
+    <div class="band-idea">
+      <span class="band-emoji">💬</span>
+      <div>
+        <h4>Start a salary transparency circle</h4>
+        <p>Create a private group of women in your industry or field and agree to share your salaries, titles, and companies. When women know what others earn, they negotiate more effectively and employers can no longer hide disparities.</p>
+      </div>
+    </div>
+    <div class="band-idea">
+      <span class="band-emoji">✍️</span>
+      <div>
+        <h4>Host a negotiation workshop</h4>
+        <p>Gather women and practice salary negotiations together. Role-play the conversation. Research the scripts. AAUW offers free salary negotiation training at aauw.org that you can bring to any group of women.</p>
+      </div>
+    </div>
+    <div class="band-idea">
+      <span class="band-emoji">📣</span>
+      <div>
+        <h4>Publicly name companies with pay equity commitments</h4>
+        <p>Share and celebrate companies that publish salary bands, conduct pay audits, and report pay equity data. Hold up the good examples. Make it a standard women demand before accepting jobs.</p>
+      </div>
+    </div>
+    <div class="band-idea">
+      <span class="band-emoji">🗳️</span>
+      <div>
+        <h4>Organize a letter-writing campaign for your state legislature</h4>
+        <p>Many states still lack strong pay equity and pay transparency laws. Research your state's status at nwlc.org and organize women to write, call, or show up to demand stronger protections locally.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <h2>Join The Lotus Assembly</h2>
+  <p>Fill in your info below and I will personally reach out with resources on pay equity, tools to help you negotiate, and ways to connect with women organizing around economic justice in your area. You will not be left on a list. You will hear from me.</p>
+
+  <div id="form-area">
+    <div id="error-msg" class="error-msg"></div>
+    <input class="form-input" type="text"  id="f-name"   placeholder="Your first name" />
+    <input class="form-input" type="email" id="f-email"  placeholder="Your email address" />
+    <input class="form-input" type="text"  id="f-city"   placeholder="Your city and state" />
+    <input class="form-input" type="text"  id="f-county" placeholder="Your county (optional)" />
+
+    <p class="role-label">I want to: <span style="color:rgba(255,255,255,0.45); font-size:11px;">(choose all that apply)</span></p>
+    <div class="role-row">
+      <div class="role-btn" onclick="toggleRole(this)">💰 Negotiate my salary</div>
+      <div class="role-btn" onclick="toggleRole(this)">📢 Advocate for pay equity</div>
+      <div class="role-btn" onclick="toggleRole(this)">📚 Learn my rights</div>
+      <div class="role-btn" onclick="toggleRole(this)">🤝 Organize with women</div>
+    </div>
+
+    <button class="submit-btn" id="submit-btn" onclick="handleSubmit()">Count Me In. Equal Pay Is Not Optional. ♡</button>
+    <p style="font-size:11px; margin-top:12px; color:rgba(255,255,255,0.45);">No spam, ever. Unsubscribe anytime.</p>
+  </div>
+
+  <div class="success-box" id="success">
+    <h3>You are in. We see you. ♡</h3>
+    <p>Thank you for standing up for every woman who has ever been underpaid, overlooked, or told to be grateful for less. Check your email. You will hear from me directly.</p>
+    <p style="margin-top:12px;">Share this with 3 women. Every woman who knows the facts is harder to shortchange.</p>
+    <div style="margin-top:16px;">
+      <span class="tag">#TheLotusAssembly</span>
+      <span class="tag">#EqualPayNow</span>
+      <span class="tag">#PayGapIsReal</span>
+    </div>
+    <div style="margin-top:16px;">
+      <a href="https://ladylotuss9.github.io/The-Lotus-Assembly/" target="_blank" rel="noopener"
+         style="display:inline-block; background:white; color:#2D0A3A; border-radius:10px;
+                padding:10px 22px; font-size:13px; font-weight:700; text-decoration:none;
+                font-family:'DM Sans',sans-serif;">
+        Visit The Lotus Assembly ↗
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="lt-footer">
+  <p>Join my Discord and socials for all things womanhood. Explore, connect, and get involved through The Lotus Assembly.</p>
+  <a class="lt-footer-btn" href="https://discord.gg/sbne7xQWW" target="_blank" rel="noopener">💬 Join the Discord ↗</a>
+  <a class="lt-footer-btn outline" href="https://linktr.ee/ladylotuss9" target="_blank" rel="noopener">🌿 Visit Linktree ↗</a>
+</div>
+
+<div class="footer-note">
+  <strong>All statistics verified from primary sources:</strong><br>
+  U.S. Census Bureau 2024 · National Partnership for Women and Families 2024 · IWPR September 2025<br>
+  Economic Policy Institute March 2025 · Pew Research Center 2025 · National Women's Law Center 2024<br><br>
+  <span class="tag">#TheLotusAssembly</span>
+  <span class="tag">#EqualPayNow</span>
+  <span class="tag">#PayGapIsReal</span>
+  <span class="tag">#LadyBlossoms</span><br><br>
+  Share this. Every woman who knows the facts is harder to underpay.
+</div>
+
+<script>
+var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxn7zM3jNUGYcGts9S1MEGKyXwQYdryn8kppBhha3AbXYreDuMjaHTImy5e7RBz56WOqw/exec";
+var SECRET_TOKEN    = "LadyLotus2024CircleOfMamas!Secure";
+var MAX_LEN         = 200;
+
+function toggleRole(el) { el.classList.toggle('selected'); }
+
+function sanitize(str) {
+  return str.replace(/<[^>]*>/g, "").replace(/[<>'"]/g, "").trim();
+}
+
+async function handleSubmit() {
+  var errBox = document.getElementById('error-msg');
+  errBox.style.display = 'none';
+  var name   = sanitize(document.getElementById('f-name').value);
+  var email  = sanitize(document.getElementById('f-email').value).toLowerCase();
+  var city   = sanitize(document.getElementById('f-city').value);
+  var county = sanitize(document.getElementById('f-county').value);
+  if (!name || !email) {
+    errBox.textContent = 'Please enter your first name and email to join!';
+    errBox.style.display = 'block';
+    return;
+  }
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    errBox.textContent = 'Please enter a valid email address.';
+    errBox.style.display = 'block';
+    return;
+  }
+  var selectedRoles = [];
+  var btns = document.querySelectorAll('.role-btn.selected');
+  for (var j = 0; j < btns.length; j++) { selectedRoles.push(sanitize(btns[j].textContent)); }
+  var btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: 'POST', mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token: SECRET_TOKEN, name: name, email: email, city: city, county: county, roles: selectedRoles.join(', '), source: "Pay Gap Poster" })
+    });
+    document.getElementById('form-area').style.display = 'none';
+    document.getElementById('success').style.display = 'block';
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Count Me In. Equal Pay Is Not Optional. ♡';
+    errBox.textContent = 'Something went wrong. Please check your connection and try again.';
+    errBox.style.display = 'block';
+  }
+}
+</script>
+</body>
+</html>
